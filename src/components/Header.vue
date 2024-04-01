@@ -1,9 +1,13 @@
 <template>
-    <header class="max-w-[1920px] w-full flex justify-around items-center bg-red-200">
-        <img class="max-w-64 w-full " src="../assets/DM Logo(big).png" alt="logo">
-        <ul class="flex gap-[52px]">
+    <header class="container">
+        <img class="logo" src="../assets/DM Logo(big).png" alt="logo">
+        <ul>
             <li v-for="(menu, index) in menus" :key="index">
-                <a :href="menu.href" v-html="menu.content">
+                <a :href="menu.href" v-if="menu.isText">
+                    <p>{{menu.content}}</p>
+                </a>
+                <a :href="menu.href" v-else>
+                    <img src="" alt="">
                 </a>
             </li>
         </ul>
@@ -16,39 +20,76 @@ import { reactive } from 'vue';
 const menus = reactive([
     {
         href: '#callNumber',
-        content: `<p class='text-[#464646] text-base font-bold'>叫號進度</p>`
+        isText: true,
+        content: '叫號進度'
     },
     {
         href: '#clinicTime',
-        content: `<p class='text-[#464646] text-base font-bold'>門診時間</p>`
+        isText: true,
+        content: '門診時間'
     },
     {
         href: '#medicalTeam',
-        content: `<p class='text-[#464646] text-base font-bold'>醫療團隊</p>`
+        isText: true,
+        content: '醫療團隊'
     },
     {
         href: '#clinicEnvironment',
-        content: `<p class='text-[#464646] text-base font-bold'>診所環境</p>`
+        isText: true,
+        content: '診所環境'
     },
     {
         href: '#contactUs',
-        content: `<p class='text-[#464646] text-base font-bold'>聯絡我們</p>`
+        isText: true,
+        content: '聯絡我們'
     },
     {
         href: '#registrationQuery',
-        content: `<p class='text-[#464646] text-base font-bold'>掛號查詢</p>`
+        isText: true,
+        content: '掛號查詢'
     },
     {
         href: 'https://www.facebook.com/dermai.clinic/?locale=zh_TW',
-        content: `<img class='max-w-6 w-full' src="../../public/Facebook icon.png" alt="Facebook">`
+        isText: false,
+        content: '../../public/Facebook icon.png'
     },
     {
         href: 'https://lin.ee/AY002Fz',
-        content: `<img class='max-w-6 w-full' src="../../public/Line.png" alt="Line">`
+        isText: false,
+        content: '../../public/Line.png'
     }
 ])
 </script>
 
-<style scoped lang="css">
-/* tailwind規範：寬度>佈局>間距>文字>位置>動畫>其他 */
+<style scoped lang="scss">
+/* SCSS規範：寬度>佈局>間距>文字>位置>動畫>其他 */
+.container {
+    background: pink;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+
+    img {
+        max-width: 225px;
+        width: 100%;
+    }
+
+    ul {
+        display: flex;
+
+        li {
+            background: burlywood;
+
+            a {
+                text-decoration: none;
+
+                p {
+                    color: #464646;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
 </style>

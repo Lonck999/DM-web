@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full">
+    <div class="container">
         <Header />
         <main class="content"></main>
         <Footer />
@@ -12,4 +12,9 @@ import Footer from './components/Footer.vue'
 
 </script>
     
-<style></style>
+<style lang="scss" scoped>
+/* SCSS規範：寬度>佈局>間距>文字>位置>動畫>其他 */
+.container {
+    width: 100%;
+}
+</style>
