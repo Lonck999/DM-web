@@ -1,11 +1,13 @@
 <template>
     <div class="header">
-        <img src="../assets/DM Logo(big).png" alt="logo">
+        <router-link to="/home">
+            <img :src="logo" alt="logo">
+        </router-link>
         <ul>
             <li v-for="(menu, index) in menus" :key="index">
-                <a :href="menu.href" v-if="menu.isText">
+                <router-link :to="menu.href" v-if="menu.isText">
                     <p>{{ menu.content }}</p>
-                </a>
+                </router-link>
                 <a :href="menu.href" target="_blank" v-else>
                     <img :src="menu.content" alt="">
                 </a>
@@ -16,6 +18,8 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue';
+// 引入logo
+import logo from '../assets/DM Logo(big).png';
 
 const menus = reactive([
     {
@@ -69,11 +73,15 @@ const menus = reactive([
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto -80px;
+    padding-top: 20px;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
 
     img {
-        max-width: 225px;
-        width: 11.8%;
+        width: 18.9%;
         margin-left: 7.8%;
     }
 
@@ -82,7 +90,7 @@ const menus = reactive([
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: 0 4%;
+        gap: 0 10%;
         margin-right: 7.8%;
 
         li {
@@ -96,6 +104,10 @@ const menus = reactive([
                     font-weight: 600;
                     font-size: 1cqw;
                     text-wrap: nowrap;
+
+                    &:hover {
+                        color: rgb(0, 189, 183);
+                    }
                 }
 
                 img {

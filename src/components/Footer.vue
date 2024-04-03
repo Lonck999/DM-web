@@ -1,49 +1,26 @@
 <template>
     <footer class="content">
         <ul>
-            <li>
-                <a href="#">
-                    <p>叫號進度</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>門診時間</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>醫療團隊</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>診所環境</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>聯絡我們</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>掛號查詢</p>
-                </a>
+            <li v-for="(menu, index) in menus" :key="index">
+                <router-link :to="menu.href">
+                    <p>{{menu.content}}</p>
+                </router-link>
             </li>
         </ul>
         <div class="map">
-            <img src="../assets/地圖.png" alt="">
+            <router-link to="/qrcode">
+                <img :src="mapImage" alt="map">
+            </router-link>
             <div>
-                <h3>德美診所</h3>
+                <h3>{{ name }}</h3>
                 <p>
-                    地址：234新北市永和區中正路455-1號
+                    {{ address }}
                 </p>
                 <p>
-                    電話：02 2927 3001
+                    {{ tel }}
                 </p>
                 <p>
-                    信箱：dl.dmmm@gmail.com
+                    {{ email }}
                 </p>
             </div>
         </div>
@@ -51,10 +28,46 @@
 </template>
     
 <script setup lang='ts'>
+import { ref, reactive } from "vue";
+import mapImage from '../assets/地圖.png';
+
+
+const menus = reactive([
+    {
+        href: '#callNumber',
+        content: '叫號進度'
+    },
+    {
+        href: '#clinicTime',
+        content: '門診時間'
+    },
+    {
+        href: '#medicalTeam',
+        content: '醫療團隊'
+    },
+    {
+        href: '#clinicEnvironment',
+        content: '診所環境'
+    },
+    {
+        href: '#contactUs',
+        content: '聯絡我們'
+    },
+    {
+        href: '#registrationQuery',
+        content: '掛號查詢'
+    }
+])
+
+const name = ref('德美診所');
+const address = ref('地址：234新北市永和區中正路455-1號');
+const tel = ref('電話：02 2927 3001');
+const email = ref('信箱：dl.dmmm@gmail.com');
 
 </script>
     
 <style scoped lang="scss">
+/* SCSS規範：寬度>佈局>間距>文字>位置>動畫>其他 */
 .content {
     background: #5b5b5c;
     max-width: 1920px;
@@ -95,7 +108,7 @@
 
         img {
             max-width: 267px;
-            width: 33%;
+            width: 33cqw;
         }
 
         div {

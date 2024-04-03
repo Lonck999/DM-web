@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <Header />
-        <main class="content">123</main>
+        <router-view></router-view>
         <Footer />
     </div>
 </template>
@@ -16,9 +16,5 @@ import Footer from './components/Footer.vue'
 /* SCSS規範：寬度>佈局>間距>文字>位置>動畫>其他 */
 .container {
     width: 100%;
-
-    main{
-        background-image: url('./assets/背景.png');
-    }
 }
 </style>
