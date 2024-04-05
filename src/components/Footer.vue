@@ -1,32 +1,34 @@
 <template>
-    <footer class="content">
-        <ul>
-            <li v-for="(menu, index) in menus" :key="index">
-                <router-link :to="menu.href">
-                    <p>{{menu.content}}</p>
+    <div class="footer">
+        <div class="content">
+            <ul>
+                <li v-for="(menu, index) in menus" :key="index">
+                    <router-link :to="menu.href">
+                        <p>{{ menu.content }}</p>
+                    </router-link>
+                </li>
+            </ul>
+            <div class="map">
+                <router-link to="/qrcode">
+                    <img :src="mapImage" alt="map">
                 </router-link>
-            </li>
-        </ul>
-        <div class="map">
-            <router-link to="/qrcode">
-                <img :src="mapImage" alt="map">
-            </router-link>
-            <div>
-                <h3>{{ name }}</h3>
-                <p>
-                    {{ address }}
-                </p>
-                <p>
-                    {{ tel }}
-                </p>
-                <p>
-                    {{ email }}
-                </p>
+                <div>
+                    <h3>{{ name }}</h3>
+                    <p>
+                        {{ address }}
+                    </p>
+                    <p>
+                        {{ tel }}
+                    </p>
+                    <p>
+                        {{ email }}
+                    </p>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
 </template>
-    
+
 <script setup lang='ts'>
 import { ref, reactive } from "vue";
 import mapImage from '../assets/地圖.png';
@@ -65,64 +67,68 @@ const tel = ref('電話：02 2927 3001');
 const email = ref('信箱：dl.dmmm@gmail.com');
 
 </script>
-    
+
 <style scoped lang="scss">
 /* SCSS規範：寬度>佈局>間距>文字>位置>動畫>其他 */
-.content {
-    background: #5b5b5c;
-    max-width: 1920px;
+.footer {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 1.7% 0;
+    background: #5b5b5c;
 
-    ul {
-        flex: 1;
+    .content {
+        max-width: 1920px;
+        width: 100%;
         display: flex;
-        gap: 0 5%;
-        margin-left: 7.8%;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 1.7% 0;
 
-        li {
-            a {
-                text-decoration: none;
-                container-type: inline-size;
+        ul {
+            flex: 1;
+            display: flex;
+            gap: 0 5%;
+            margin-left: 7.8%;
 
-                p {
-                    color: #fff;
-                    font-size: 0.9cqw;
-                    font-weight: 600;
-                    text-wrap: nowrap;
+            li {
+                a {
+                    text-decoration: none;
+                    container-type: inline-size;
+
+                    p {
+                        color: #fff;
+                        font-size: 0.9cqw;
+                        font-weight: 600;
+                        text-wrap: nowrap;
+                    }
                 }
             }
         }
-    }
 
-    .map {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        gap: 0 5%;
-        margin-right: 7.8%;
-        container-type: inline-size;
+        .map {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0 5%;
+            margin-right: 7.8%;
+            container-type: inline-size;
 
-        img {
-            max-width: 267px;
-            width: 33cqw;
-        }
-
-        div {
-            color: #fff;
-
-            h3 {
-                font-size: 2.4cqw;
-                font-weight: 600;
-                margin: 8% 0;
+            img {
+                max-width: 267px;
+                width: 33cqw;
             }
 
-            p {
-                font-size: 2cqw;
-                margin-bottom: 3%;
+            div {
+                color: #fff;
+
+                h3 {
+                    font-size: 2.4cqw;
+                    font-weight: 600;
+                    margin: 8% 0;
+                }
+
+                p {
+                    font-size: 2cqw;
+                    margin-bottom: 3%;
+                }
             }
         }
     }
