@@ -87,7 +87,7 @@ const menus = reactive([
 
         img {
             flex: 1;
-            width: 24.6%;
+            width: 22%;
             margin-left: 7.8%;
         }
 
@@ -107,11 +107,13 @@ const menus = reactive([
                     p {
                         color: #464646;
                         font-weight: 600;
-                        font-size: 1.1cqw;
+                        font-size: 1cqw;
                         text-wrap: nowrap;
+                        transition: transform 0.3s ease;
 
                         &:hover {
                             color: rgb(0, 189, 183);
+                            transform: scale(1.15);
                         }
                     }
 
