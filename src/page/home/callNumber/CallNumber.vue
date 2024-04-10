@@ -96,7 +96,7 @@ const callNumber = reactive([
 
 .call {
     width: 100%;
-    margin: 4.5% 0;
+    margin: 4.5% 0 0;
     container-type: inline-size;
 
     h1 {
@@ -114,7 +114,6 @@ const callNumber = reactive([
 
         .number-block {
             flex: 1;
-
 
             .number-dark,
             .number-light {

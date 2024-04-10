@@ -50,7 +50,7 @@ const menus = reactive([
         content: '聯絡我們'
     },
     {
-        href: '#registrationQuery',
+        href: '/inquire',
         isText: true,
         content: '掛號查詢'
     },
@@ -103,6 +103,12 @@ const menus = reactive([
 
                 a {
                     text-decoration: none;
+                    &:focus {
+                        p {
+                            color: rgb(0, 189, 183);
+                            transform: scale(1.15);
+                        }
+                    }
 
                     p {
                         color: #464646;

@@ -4,10 +4,15 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../page/home/Home.vue";
 import Doctor from "../page/doctor/Doctor.vue";
 import QRCode from "../components/QRCode.vue";
+import Inquire from "../components/Inquire.vue";
 
 export default createRouter({
   history: createWebHistory(),
   routes: [
+    {
+      path: "/",
+      redirect: "/home",
+    },
     {
       path: "/home",
       name: "Home",
@@ -24,8 +29,9 @@ export default createRouter({
       component: QRCode,
     },
     {
-      path: "/",
-      redirect: "/home",
+      path: "/inquire",
+      name: "Inquire",
+      component: Inquire,
     },
-]
+  ],
 });
