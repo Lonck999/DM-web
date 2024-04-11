@@ -25,7 +25,7 @@ import logo from '../assets/DM Logo(big).png';
 
 const menus = reactive([
     {
-        href: '#callNumber',
+        href: '/home#callNumber',
         isText: true,
         content: '叫號進度'
     },
@@ -57,7 +57,7 @@ const menus = reactive([
     {
         href: 'https://www.facebook.com/dermai.clinic/?locale=zh_TW',
         isText: false,
-        content: '/facebook.png'
+        content: 'Facebook icon.png'
     },
     {
         href: 'https://lin.ee/AY002Fz',

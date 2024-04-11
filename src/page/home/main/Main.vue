@@ -1,29 +1,30 @@
 <template>
-    <div class="main">
+    <div class="main" id="callNumber">
         <div class="content">
             <div class="main-img">
-                <p class="join">立即加入 !</p>
+                <p class="join">{{ join }}</p>
                 <p class="serve">
-                    查詢 <span>門診時間</span>、<span>看診進度</span>、<span>預</span><br><span class="blank">約掛號</span>、<span
-                        class="blank">居家照護視訊診療</span> 。</p>
+                    {{contentText.inquire}}<span>{{contentText.time}}</span>、<span>{{contentText.now}}</span>、<span>{{contentText.pre}}</span><br><span class="blank">{{contentText.blank }}</span>、<span
+                        class="blank"> {{contentText.home}} </span> 。
+                </p>
                 <img :src="talk" alt="talk">
             </div>
-            <p class="title">德美診所官方LINE帳號</p>
+            <p class="title">{{line}}</p>
             <div class="line">
                 <img :src="QRCode2">
                 <div>
                     <a href="https://page.line.me/rpi1156z?openQrModal=true">
-                        <p>掃描條碼或點我加入！</p>
+                        <p>{{qrCode}}</p>
                     </a>
                 </div>
                 <div>
                     <router-link to="/qrcode">
-                        <p>APP預約掛號</p>
+                        <p>{{app}}</p>
                     </router-link>
                 </div>
                 <div>
                     <a href="">
-                        <p>網路預約掛號</p>
+                        <p>{{web}}</p>
                     </a>
                 </div>
             </div>
@@ -34,6 +35,22 @@
 <script setup lang='ts'>
 import talk from '../../../assets/talk.png'
 import QRCode2 from '../../../assets/QRCode2.png'
+import { ref,reactive } from 'vue';
+
+const join = ref('立即加入 !')
+const contentText = reactive({
+    inquire: '查詢 ',
+    time: '門診時間',
+    now: '看診進度',
+    pre: '預',
+    blank: '約掛號',
+    home: '居家照護視訊診療',
+})
+const line = ref('德美診所官方LINE帳號')
+const qrCode = ref('掃描條碼或點我加入！')
+const app = ref('APP預約掛號')
+const web = ref('網路預約掛號')
+
 </script>
 
 <style scoped lang="scss">
@@ -63,7 +80,7 @@ import QRCode2 from '../../../assets/QRCode2.png'
                 animation: fadein-left 2.5s;
             }
 
-            .serve{
+            .serve {
                 animation: fadein-top 2.5s;
             }
 
