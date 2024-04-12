@@ -2,12 +2,14 @@
     <div class="content">
         <Main />
         <CallNumber />
+        <ClinicHours />
     </div>
 </template>
 
 <script setup lang='ts'>
 import Main from './main/Main.vue'
 import CallNumber from './callNumber/CallNumber.vue';
+import ClinicHours from './clinicHours/ClinicHours.vue';
 </script>
 
 <style scoped lang="scss">

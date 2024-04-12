@@ -9,13 +9,13 @@
                     <form>
                         <div class="form-block_id">
                             <label for="idNumber">
-                                {{ idName }}<span>{{ star }}</span>
+                                {{ idName }}<span>＊</span>
                                 <br>
                                 <input id="idNumber" name="idNumber" type="text" v-model="idNumber">
                             </label>
                         </div>
                         <div class="form-block_birth">
-                            <label for="birthYear">{{ birth }}<span>{{ star }}</span></label>
+                            <label for="birthYear">{{ birth }}<span>＊</span></label>
                             <br>
                             <select id="birthYear" v-model="birthYear" @change="onYearOrMonthChange">
                                 <option disabled value="">{{ choose }}</option>
@@ -31,11 +31,11 @@
                             </select>
                         </div>
                         <div class="form-phone">
-                            <label for="phone">{{ phoneNumber }}<span>{{ star }}</span></label>
+                            <label for="phone">{{ phoneNumber }}<span>＊</span></label>
                             <br>
                             <input id="phone" name="phone" type="text" v-model="phone">
                         </div>
-                        <button>{{ inquireBtn }}</button>
+                        <button type="submit">{{ inquireBtn }}</button>
                     </form>
                 </div>
             </div>
@@ -49,7 +49,6 @@ import { ref, computed } from 'vue';
 const title = ref('查詢預約掛號');
 const illustrate = ref('請輸入預約掛號時所填寫的預約資料。');
 const deadline = ref('※僅供查詢兩個月內的網路掛號資料');
-const star = ref('*');
 const idName = ref('身份證號/居留證號');
 const birth = ref('出生年份');
 const choose = ref('請選擇');
