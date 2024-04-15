@@ -95,8 +95,9 @@ const callNumber = reactive([
 /* SCSS規範：寬度>佈局>間距>文字>位置>動畫>其他 */
 
 .call {
+    max-width: 1920px;
     width: 100%;
-    margin: 4.5% 0 0;
+    margin: 0 auto;
     container-type: inline-size;
 
     h1 {

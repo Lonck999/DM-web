@@ -124,6 +124,7 @@ const web = ref('網路預約掛號')
             justify-content: space-between;
             align-items: center;
             margin-left: 31.4%;
+            margin-bottom: 4.5%;
             padding: 0.7% 1.5%;
             animation: fadein-buttom 2.5s;
 
