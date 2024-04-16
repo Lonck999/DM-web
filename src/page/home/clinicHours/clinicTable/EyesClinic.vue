@@ -6,7 +6,7 @@
                 <p>{{ eyesClinic.content }}</p>
             </div>
         </div>
-        <slot></slot>
+        <slot :doctor="eyesClinic.doctor"></slot>
     </div>
 </template>
     
@@ -16,7 +16,11 @@ import { reactive } from 'vue';
 const eyesClinic = reactive({
     title: '眼科門診',
     content: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
-    doctor: ['王司宏','黃瑞冰','徐郁芳']
+    doctor: {
+        wang:'王司宏',
+        huang:'黃瑞冰',
+        xu:'徐郁芳'
+    }
 })
 
 </script>

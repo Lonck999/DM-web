@@ -1,5 +1,5 @@
 <template>
-    <div class="main" id="callNumber">
+    <div class="main">
         <div class="content">
             <div class="main-img">
                 <p class="join">{{ join }}</p>

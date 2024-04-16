@@ -30,7 +30,7 @@ const menus = reactive([
         content: '叫號進度'
     },
     {
-        href: '#clinicTime',
+        href: '/home#clinicTime',
         isText: true,
         content: '門診時間'
     },
