@@ -1,8 +1,8 @@
 <template>
     <div class="clinicHours">
         <div class="title">
-            <h1>門診時間</h1>
-            <p>點擊醫生姓名可進行網路預約</p>
+            <h1>{{ title }}</h1>
+            <p>{{ illustrate }}</p>
         </div>
         <div>
             <EyesClinic v-slot="eyesClinic">
@@ -10,43 +10,43 @@
                     <thead>
                         <tr>
                             <th>
-                                <p>門診時間/星期</p>
+                                <p>{{ tableTitle }}</p>
                             </th>
                             <th>
-                                <p>星期一</p>
-                                <p>MON</p>
+                                <p>{{ week.monCN }}</p>
+                                <p>{{ week.monEN }}</p>
                             </th>
                             <th>
-                                <p>星期二</p>
-                                <p>TUE</p>
+                                <p>{{ week.tueCN }}</p>
+                                <p>{{ week.tueEN }}</p>
                             </th>
                             <th>
-                                <p>星期三</p>
-                                <p>WED</p>
+                                <p>{{ week.wedCN }}</p>
+                                <p>{{ week.wedEN }}</p>
                             </th>
                             <th>
-                                <p>星期四</p>
-                                <p>THU</p>
+                                <p>{{ week.thuCN }}</p>
+                                <p>{{ week.thuEN }}</p>
                             </th>
                             <th>
-                                <p>星期五</p>
-                                <p>FRI</p>
+                                <p>{{ week.friCN }}</p>
+                                <p>{{ week.friEN }}</p>
                             </th>
                             <th>
-                                <p>星期六</p>
-                                <p>SAT</p>
+                                <p>{{ week.satCN }}</p>
+                                <p>{{ week.satEN }}</p>
                             </th>
                             <th>
-                                <p>星期日</p>
-                                <p>SUN</p>
+                                <p>{{ week.sunCN }}</p>
+                                <p>{{ week.sunEN }}</p>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>
-                                <p>上午</p>
-                                <p>09:00-12:00</p>
+                                <p>{{ timePeriod.morning }}</p>
+                                <p>{{ timePeriod.morningTime }}</p>
                             </th>
                             <td>
                                 <p>{{ eyesClinic.doctor.wang }}</p>
@@ -68,8 +68,8 @@
                         </tr>
                         <tr>
                             <th>
-                                <p>下午</p>
-                                <p>15:00-18:00</p>
+                                <p>{{ timePeriod.afternoon }}</p>
+                                <p>{{ timePeriod.afternoonTime }}</p>
                             </th>
                             <td>
                                 <p>{{ eyesClinic.doctor.xu }}</p>
@@ -93,8 +93,8 @@
                         </tr>
                         <tr>
                             <th>
-                                <p>晚上</p>
-                                <p>18:00-22:00</p>
+                                <p>{{ timePeriod.night }}</p>
+                                <p>{{ timePeriod.nightTime }}</p>
                             </th>
                             <td>
                                 <p>{{ eyesClinic.doctor.wang }}</p>
@@ -116,43 +116,43 @@
                     <thead>
                         <tr>
                             <th>
-                                <p>門診時間/星期</p>
+                                <p>{{ tableTitle }}</p>
                             </th>
                             <th>
-                                <p>星期一</p>
-                                <p>MON</p>
+                                <p>{{ week.monCN }}</p>
+                                <p>{{ week.monEN }}</p>
                             </th>
                             <th>
-                                <p>星期二</p>
-                                <p>TUE</p>
+                                <p>{{ week.tueCN }}</p>
+                                <p>{{ week.tueEN }}</p>
                             </th>
                             <th>
-                                <p>星期三</p>
-                                <p>WED</p>
+                                <p>{{ week.wedCN }}</p>
+                                <p>{{ week.wedEN }}</p>
                             </th>
                             <th>
-                                <p>星期四</p>
-                                <p>THU</p>
+                                <p>{{ week.thuCN }}</p>
+                                <p>{{ week.thuEN }}</p>
                             </th>
                             <th>
-                                <p>星期五</p>
-                                <p>FRI</p>
+                                <p>{{ week.friCN }}</p>
+                                <p>{{ week.friEN }}</p>
                             </th>
                             <th>
-                                <p>星期六</p>
-                                <p>SAT</p>
+                                <p>{{ week.satCN }}</p>
+                                <p>{{ week.satEN }}</p>
                             </th>
                             <th>
-                                <p>星期日</p>
-                                <p>SUN</p>
+                                <p>{{ week.sunCN }}</p>
+                                <p>{{ week.sunEN }}</p>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>
-                                <p>上午</p>
-                                <p>09:00-12:00</p>
+                                <p>{{ timePeriod.morning }}</p>
+                                <p>{{ timePeriod.morningTime }}</p>
                             </th>
                             <td>
                                 <p>{{ familyClinic.doctor.tsai }}</p>
@@ -174,8 +174,8 @@
                         </tr>
                         <tr>
                             <th>
-                                <p>下午</p>
-                                <p>15:00-18:00</p>
+                                <p>{{ timePeriod.afternoon }}</p>
+                                <p>{{ timePeriod.afternoonTime }}</p>
                             </th>
                             <td></td>
                             <td>
@@ -198,8 +198,8 @@
                         </tr>
                         <tr>
                             <th>
-                                <p>晚上</p>
-                                <p>18:00-22:00</p>
+                                <p>{{ timePeriod.night }}</p>
+                                <p>{{ timePeriod.nightTime }}</p>
                             </th>
                             <td>
                                 <p>{{ familyClinic.doctor.lin }}</p>
@@ -227,43 +227,43 @@
                     <thead>
                         <tr>
                             <th>
-                                <p>門診時間/星期</p>
+                                <p>{{ tableTitle }}</p>
                             </th>
                             <th>
-                                <p>星期一</p>
-                                <p>MON</p>
+                                <p>{{ week.monCN }}</p>
+                                <p>{{ week.monEN }}</p>
                             </th>
                             <th>
-                                <p>星期二</p>
-                                <p>TUE</p>
+                                <p>{{ week.tueCN }}</p>
+                                <p>{{ week.tueEN }}</p>
                             </th>
                             <th>
-                                <p>星期三</p>
-                                <p>WED</p>
+                                <p>{{ week.wedCN }}</p>
+                                <p>{{ week.wedEN }}</p>
                             </th>
                             <th>
-                                <p>星期四</p>
-                                <p>THU</p>
+                                <p>{{ week.thuCN }}</p>
+                                <p>{{ week.thuEN }}</p>
                             </th>
                             <th>
-                                <p>星期五</p>
-                                <p>FRI</p>
+                                <p>{{ week.friCN }}</p>
+                                <p>{{ week.friEN }}</p>
                             </th>
                             <th>
-                                <p>星期六</p>
-                                <p>SAT</p>
+                                <p>{{ week.satCN }}</p>
+                                <p>{{ week.satEN }}</p>
                             </th>
                             <th>
-                                <p>星期日</p>
-                                <p>SUN</p>
+                                <p>{{ week.sunCN }}</p>
+                                <p>{{ week.sunEN }}</p>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>
-                                <p>上午</p>
-                                <p>09:00-12:00</p>
+                                <p>{{ timePeriod.morning }}</p>
+                                <p>{{ timePeriod.morningTime }}</p>
                             </th>
                             <td>
                                 <p>{{ rehClinic.doctor }}</p>
@@ -283,8 +283,8 @@
                         </tr>
                         <tr>
                             <th>
-                                <p>下午</p>
-                                <p>15:00-18:00</p>
+                                <p>{{ timePeriod.afternoon }}</p>
+                                <p>{{ timePeriod.afternoonTime }}</p>
                             </th>
                             <td></td>
                             <td>
@@ -300,8 +300,8 @@
                         </tr>
                         <tr>
                             <th>
-                                <p>晚上</p>
-                                <p>18:00-22:00</p>
+                                <p>{{ timePeriod.night }}</p>
+                                <p>{{ timePeriod.nightTime }}</p>
                             </th>
                             <td>
                                 <p>{{ rehClinic.doctor }}</p>
@@ -318,24 +318,36 @@
                     </tbody>
                 </table>
                 <div class="reh">
-                    <p class="reh-time">復健治療時間</p>
+                    <p class="reh-time">{{ reh.title }}</p>
                     <div class="lasting">
-                        <span>上午</span>
-                        <span>08:00 - 12:00</span>
+                        <span>{{ reh.morning }}</span>
+                        <span>{{ reh.morningTime }}</span>
                     </div>
                     <div class="lasting">
-                        <span>下午</span>
-                        <span>14:00 - 21:00</span>
+                        <span>{{ reh.afternoon }}</span>
+                        <span>{{ reh.afternoonTime }}</span>
                     </div>
                     <div class="reh-remark">
-                        <p>復健治療最後收單時間 : 11:30、20:30</p>
+                        <p>{{ reh.lastTime }}</p>
                         <p>
                             <img :src="vector" alt="">
-                            星期日僅有上午
+                            {{ reh.sunday }}
                         </p>
                     </div>
                 </div>
-                <div>2</div>
+                <div class="ot">
+                    <p class="ot-time">{{ot.title}}</p>
+                    <p class="child">{{ ot.child}}</p>
+                    <div class="lasting">
+                        <span>{{ ot.childWeek}}</span>
+                        <span>{{ ot.childTime}}</span>
+                    </div>
+                    <p class="aldult">{{ ot.aldult}}</p>
+                    <div class="lasting">
+                        <span>{{ ot.aldultWeek}}</span>
+                        <span>{{ ot.aldultTime}}</span>
+                    </div>
+                </div>
             </RehClinic>
         </div>
     </div>
@@ -346,6 +358,53 @@ import EyesClinic from './clinicTable/EyesClinic.vue';
 import FamilyClinic from './clinicTable/FamilyClinic.vue';
 import RehClinic from './clinicTable/RehClinic.vue';
 import vector from '../../../assets/Vector.png';
+import { ref, reactive } from 'vue';
+
+const title = ref('門診時間');
+const illustrate = ref('點擊醫生姓名可進行網路預約');
+const tableTitle = ref('門診時間/星期');
+const week = reactive({
+    monCN: '星期一',
+    monEN: 'MON',
+    tueCN: '星期二',
+    tueEN: 'TUE',
+    wedCN: '星期三',
+    wedEN: 'WED',
+    thuCN: '星期四',
+    thuEN: 'THU',
+    friCN: '星期五',
+    friEN: 'FRI',
+    satCN: '星期六',
+    satEN: 'SAT',
+    sunCN: '星期日',
+    sunEN: 'SUN'
+});
+const timePeriod = reactive({
+    morning: '上午',
+    morningTime: '09:00-12:00',
+    afternoon: '下午',
+    afternoonTime: '15:00-18:00',
+    night: '晚上',
+    nightTime: '18:00-22:00'
+});
+const reh = reactive({
+    title: '復健治療時間',
+    morning: '上午',
+    morningTime: '08:00-12:00',
+    afternoon: '下午',
+    afternoonTime: '14:00-21:00',
+    lastTime: '復健治療最後收單時間 : 11:30、20:30',
+    sunday: '星期日僅有上午',
+});
+const ot = reactive({
+    title: '職能治療時間',
+    child: '兒童',
+    childWeek: '星期一至五',
+    childTime: '13:00 - 21:00',
+    aldult: '成人',
+    aldultWeek: '星期一至六',
+    aldultTime: '09:00 - 12:00'
+});
 </script>
 
 <style scoped lang="scss">
@@ -522,7 +581,7 @@ import vector from '../../../assets/Vector.png';
 
         .reh-time {
             flex: 0.9;
-            border-left: 4px solid #00908C;
+            border-left: 0.3cqw solid #00908C;
             padding: 1.1% 0.2%;
             color: #00908C;
             font-size: 1.05cqw;
@@ -533,6 +592,8 @@ import vector from '../../../assets/Vector.png';
 
         .lasting {
             flex: 1.2;
+            display: flex;
+            align-items: center;
 
             & span:first-child {
                 color: #343434;
@@ -577,5 +638,54 @@ import vector from '../../../assets/Vector.png';
             border-right: 1px solid #e6e6e6;
         }
     }
+
+    .ot {
+        margin-top: 1%;
+        display: flex;
+        align-items: center;
+
+        .ot-time {
+            border-left: 0.3cqw solid #00908C;
+            padding: 1.1% 0.6%;
+            color: #00908C;
+            font-size: 1.05cqw;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+
+        .child,
+        .aldult {
+            background: #E3EEEE;
+            padding: 1.1% 1.3%;
+            margin: 0 0 0 1.1%;
+            color: #00908C;
+            font-size: 1.05cqw;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .lasting {
+            width: 15%;
+            display: flex;
+            align-items: center;
+
+            & span:first-child {
+                color: #343434;
+                font-size: 0.85cqw;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                padding: 0 4% 0 0;
+                margin-left: 5%;
+            }
+
+            & span:nth-child(2) {
+                color: #00908C;
+                font-size: 0.85cqw;
+                font-weight: 400;
+                letter-spacing: 0.05em;
+            }
+        }
+    }
 }
-</style>style
+</style>
