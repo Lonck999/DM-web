@@ -40,11 +40,28 @@
     </div>
 </template>
 <script setup lang='ts'>
-import { ref, reactive } from 'vue';
+//引入axios
+import axios from 'axios';
+import { ref, reactive, onMounted } from 'vue';
 
-const title = ref('叫號進度');
+interface CallNumber {
+    id: number;
+    roomNameTop: string;
+    roomNameBottom: string;
+    clinic: string;
+    clinicName: string;
+    now: string;
+    nowNumber: number;
+    doctor: string;
+    doctorName: string;
+    waiting: string;
+    waitingNumber: number;
+    dark: boolean;
+}
 
-const callNumber = reactive([
+const title = ref<string>('叫號進度');
+
+const callNumber = reactive<CallNumber[]>([
     {
         id: 1,
         roomNameTop: '一',
@@ -89,8 +106,65 @@ const callNumber = reactive([
     }
 ]);
 
+const callNumberAPI = ref<CallNumber[]>([]);
+
+// API
+const accessToken = ref<string>('');
+
+const getAccessToken = async () => {
+    const apiURL = 'https://www.dltech.com.tw/DLWabAPI-Official/api/Authoutication/AccessToken';
+    const params = {
+        API_ID: 'DM',
+        API_Secret: '08727379'
+    };
+
+    try {
+        const response = await axios.get(apiURL, { params });
+        accessToken.value = response.data.Data[0].Token;
+        return accessToken.value;
+    } catch (error) {
+        console.error('Error fetching access token:', error);
+    }
+};
+
+const getNumberInfo = async () => {
+    const apiURL = 'https://www.dltech.com.tw/DLWabAPI-Official/api/Official/NumberInfo';
+    try {
+        const response = await axios.get(apiURL, {
+            headers: {
+                'Accept': 'application/json',
+                'token': accessToken.value,
+                'os': '0',
+                'ver': '0'
+            }
+        });
+        console.log('data',response.data.Data);
+        callNumberAPI.value.splice(0, callNumberAPI.value.length, ...response.data.Data.map((item: any) => ({
+            id: item.代碼,
+            roomName: item.名稱,
+            clinic: '科別 - ',
+            clinicName: item.科別,
+            now: '看診號碼',
+            nowNumber: item.看診號碼,
+            doctor: '醫師 - ',
+            doctorName: item.醫師,
+            waiting: '候診人數',
+            waitingNumber: item.候診人數,
+            dark: item.是否休診,
+        })));
+    } catch (error) {
+        console.error('Error fetching call numbers:', error);
+    }
+}
+
+
+onMounted(() => {
+    getAccessToken().then(() => {
+        getNumberInfo();
+    });
+});
 </script>
-    
+
 <style scoped lang="scss">
 /* SCSS規範：寬度>佈局>間距>文字>位置>動畫>其他 */
 
